@@ -39,6 +39,11 @@ export const Screen = styled.div`
   margin: 0 auto;
 `;
 
+export const TextBox = styled.div`
+width: 500px;
+word-break: break-all;
+`
+
 export const Form = styled.form`
   width: 90%;
   margin: 0 auto;

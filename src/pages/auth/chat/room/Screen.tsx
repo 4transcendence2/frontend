@@ -12,7 +12,7 @@ export default function Screen(props: { room: number }) {
   function listener(res: ChatData) {
     if (res.roomId !== Number(props.room)) return;
     if (res.type === "chat") {
-      setScreen((prevScreen) => [...prevScreen, res])
+      setScreen((prevScreen) => [...prevScreen, res]);
     } else if (res.type === "history") {
       const historyChat: ChatData[] = [];
       res.list?.map((chat) => {
@@ -36,10 +36,12 @@ export default function Screen(props: { room: number }) {
       <S.Screen ref={scrollRef}>
         {screen?.map((chat: ChatData) => {
           return (
-            <S.H2 key={chat.from + keyCnt++}>
-              {chat.from === "server" ? "📣 " : `${chat.from} : `}
-              {chat.content}
-            </S.H2>
+            <S.TextBox key={chat.from + keyCnt++}>
+              <S.H2>
+                {chat.from === "server" ? "📣 " : `${chat.from} : `}
+                {chat.content}
+              </S.H2>
+            </S.TextBox>
           );
         })}
       </S.Screen>
